@@ -42,7 +42,16 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</a>
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Dashboard
+            </a>
             <a href="#markets" className="text-gray-300 hover:text-white transition-colors">Markets</a>
             <a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</a>
             <a href="#trade" className="text-gray-300 hover:text-white transition-colors">Trade</a>
@@ -134,8 +143,12 @@ const Header = () => {
           <div className="md:hidden bg-slate-800/95 backdrop-blur-sm border-t border-slate-700 absolute top-full left-0 right-0 z-40">
             <div className="px-4 py-2 space-y-1">
               <a 
-                href="#dashboard" 
-                onClick={() => setShowMobileMenu(false)}
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowMobileMenu(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-700 rounded-md transition-colors"
               >
                 Dashboard

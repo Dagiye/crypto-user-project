@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { ArrowRight, Play } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import Auth from './Auth';
+import DemoModal from './DemoModal';
 
 const SimpleHero = () => {
   const { isAuthenticated } = useAuth();
   const [showAuth, setShowAuth] = useState(false);
+  const [showDemo, setShowDemo] = useState(false);
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
@@ -114,7 +116,10 @@ const SimpleHero = () => {
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </button>
           
-          <button className="group border-2 border-white/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all flex items-center backdrop-blur-sm">
+          <button 
+            onClick={() => setShowDemo(true)}
+            className="group border-2 border-white/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all flex items-center backdrop-blur-sm"
+          >
             <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
             Watch Demo
           </button>
@@ -144,6 +149,9 @@ const SimpleHero = () => {
 
       {/* Auth Modal */}
       {showAuth && <Auth onClose={() => setShowAuth(false)} />}
+      
+      {/* Demo Modal */}
+      {showDemo && <DemoModal onClose={() => setShowDemo(false)} />}
     </section>
   );
 };

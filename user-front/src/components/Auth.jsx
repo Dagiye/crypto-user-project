@@ -104,8 +104,8 @@ const Auth = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700 overflow-hidden">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto">
+      <div className="bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700 overflow-hidden my-4 max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-6 text-center">
           <div className="flex items-center justify-center mb-4">
@@ -125,10 +125,10 @@ const Auth = ({ onClose }) => {
         </div>
 
         {/* Form */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-300 text-sm font-medium mb-2">
                     First Name
@@ -142,7 +142,7 @@ const Auth = ({ onClose }) => {
                       onChange={handleInputChange}
                       className={`w-full bg-slate-800 border ${
                         errors.firstName ? 'border-red-500' : 'border-slate-700'
-                      } rounded-lg pl-10 pr-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors`}
+                      } rounded-lg pl-10 pr-4 py-2.5 sm:py-3 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm sm:text-base`}
                       placeholder="John"
                     />
                   </div>
@@ -163,7 +163,7 @@ const Auth = ({ onClose }) => {
                       onChange={handleInputChange}
                       className={`w-full bg-slate-800 border ${
                         errors.lastName ? 'border-red-500' : 'border-slate-700'
-                      } rounded-lg pl-10 pr-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors`}
+                      } rounded-lg pl-10 pr-4 py-2.5 sm:py-3 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm sm:text-base`}
                       placeholder="Doe"
                     />
                   </div>
@@ -187,7 +187,7 @@ const Auth = ({ onClose }) => {
                   onChange={handleInputChange}
                   className={`w-full bg-slate-800 border ${
                     errors.email ? 'border-red-500' : 'border-slate-700'
-                  } rounded-lg pl-10 pr-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors`}
+                  } rounded-lg pl-10 pr-4 py-2.5 sm:py-3 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm sm:text-base`}
                   placeholder="john@example.com"
                 />
               </div>
@@ -209,7 +209,7 @@ const Auth = ({ onClose }) => {
                   onChange={handleInputChange}
                   className={`w-full bg-slate-800 border ${
                     errors.password ? 'border-red-500' : 'border-slate-700'
-                  } rounded-lg pl-10 pr-12 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors`}
+                  } rounded-lg pl-10 pr-12 py-2.5 sm:py-3 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm sm:text-base`}
                   placeholder="••••••••"
                 />
                 <button
@@ -239,7 +239,7 @@ const Auth = ({ onClose }) => {
                     onChange={handleInputChange}
                     className={`w-full bg-slate-800 border ${
                       errors.confirmPassword ? 'border-red-500' : 'border-slate-700'
-                    } rounded-lg pl-10 pr-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors`}
+                    } rounded-lg pl-10 pr-4 py-2.5 sm:py-3 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm sm:text-base`}
                     placeholder="••••••••"
                   />
                 </div>
@@ -264,7 +264,7 @@ const Auth = ({ onClose }) => {
                     maxLength="6"
                     className={`w-full bg-slate-800 border ${
                       errors.withdrawalPin ? 'border-red-500' : 'border-slate-700'
-                    } rounded-lg pl-10 pr-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors`}
+                    } rounded-lg pl-10 pr-4 py-2.5 sm:py-3 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm sm:text-base`}
                     placeholder="123456"
                   />
                 </div>
@@ -287,7 +287,7 @@ const Auth = ({ onClose }) => {
                     name="referralCode"
                     value={formData.referralCode}
                     onChange={handleInputChange}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-10 pr-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-10 pr-4 py-2.5 sm:py-3 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm sm:text-base"
                     placeholder="Enter referral code"
                   />
                 </div>
@@ -329,7 +329,7 @@ const Auth = ({ onClose }) => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center group disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold py-2.5 sm:py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center group disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
             >
               {loading ? (
                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
@@ -343,7 +343,7 @@ const Auth = ({ onClose }) => {
           </form>
 
           {/* Toggle between login/register */}
-          <div className="mt-6 text-center">
+          <div className="mt-4 sm:mt-6 text-center">
             <p className="text-gray-400">
               {isLogin ? "Don't have an account?" : 'Already have an account?'}
               <button
@@ -371,7 +371,7 @@ const Auth = ({ onClose }) => {
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+            className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white/60 hover:text-white transition-colors p-2"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
